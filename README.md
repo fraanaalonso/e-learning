@@ -1,0 +1,5 @@
+## Follow the instructions to run the web application
+
+* ``` pipenv shell ``` to create the virtual environment. You need to install previously __Pipenv__ tool by typing from the command line ``` pip      install  --user pipenv ```
+* Once you activated the virtualenv you need to intall the project dependencies. In order to do so, type from the command line ``` pipenv install -r requirements.txt ```
+* After installing all the dependencies, you need to run the server by typing ``` python manage.py runserver ```. Make sure you have the virtual environment activated. If not, the command line will show an error. Django and the rest of dependencies are installed within the virtual env so, if all the dependencies contained within the requirements TXT file are not installed, django will not be able to execute the project.
