@@ -30,5 +30,109 @@
     "title": "Ingeniería de Software",
     "slug": "ingenieria-de-software"
   }
+},
+{
+  "model": "courses.course",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "subject": 1,
+    "title": "Algebra Lineal",
+    "slug": "algebra-lineal",
+    "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "created": "2021-04-01T16:06:08.609Z"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 2,
+  "fields": {
+    "owner": 1,
+    "subject": 3,
+    "title": "Python",
+    "slug": "python",
+    "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "created": "2021-04-01T16:07:49.927Z"
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 1,
+  "fields": {
+    "course": 1,
+    "title": "Derivadas",
+    "description": "",
+    "order": 1
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 2,
+  "fields": {
+    "course": 1,
+    "title": "Integrales de Primer Grado",
+    "description": "",
+    "order": 2
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 3,
+  "fields": {
+    "course": 1,
+    "title": "Integrales de Segundo Grado",
+    "description": "",
+    "order": 3
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 4,
+  "fields": {
+    "course": 2,
+    "title": "Variables",
+    "description": "",
+    "order": 1
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 5,
+  "fields": {
+    "course": 2,
+    "title": "Funciones",
+    "description": "",
+    "order": 2
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 6,
+  "fields": {
+    "course": 2,
+    "title": "Clases",
+    "description": "",
+    "order": 3
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 7,
+  "fields": {
+    "course": 2,
+    "title": "POO",
+    "description": "",
+    "order": 4
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 8,
+  "fields": {
+    "course": 2,
+    "title": "Estructuras de Datos",
+    "description": "",
+    "order": 5
+  }
 }
 ]
