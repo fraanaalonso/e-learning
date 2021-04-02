@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from environs import Env
+from django.urls import reverse_lazy
 env = Env()
 env.read_env()
 
@@ -34,7 +35,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -43,8 +43,10 @@ INSTALLED_APPS = [
     
     #own apps
     'courses.apps.CoursesConfig',
+    'students.apps.StudentsConfig',
     
     #3rd party
+    'django.contrib.admin',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
+LOGIN_URL = 'login'
+LOGOUT_URL='logout'
