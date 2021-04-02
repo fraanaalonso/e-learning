@@ -4,3 +4,4 @@ Pipfile
 Pipfile.lock
 .vscode/
 courses/migrations/
+files/
