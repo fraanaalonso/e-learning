@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from environs import Env
 from django.urls import reverse_lazy
+import os
 env = Env()
 env.read_env()
 
@@ -47,7 +48,17 @@ INSTALLED_APPS = [
     
     #3rd party
     'django.contrib.admin',
+    'embed_video',
+    'memcache_status',
+    'rest_framework',
 ]
+
+REST_FRAMWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,7 +139,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 LOGIN_URL = 'login'
 LOGOUT_URL='logout'
+
+
+#CACHE
+
+CACHE =  {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}

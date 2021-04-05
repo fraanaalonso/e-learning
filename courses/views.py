@@ -13,6 +13,7 @@ from .models import Subject
 from django.db.models import Count
 from django.views.generic.detail import DetailView
 from students.forms import CourseEnrollForm
+from django.core.cache import cache
 # Create your views here.
 
 class OwnerMixin(object):
@@ -149,16 +150,18 @@ class CourseSubjectListView(TemplateResponseMixin, View):
     template_name = 'courses/subject/list.html'
     
     def get(self, request, subject=None):
-        subjects = Subject.objects.annotate(total_courses=Count('courses')) #we get all the subjects and the number of courses for each subject
-        courses = Course.objects.annotate(total_modules=Count('modules'))
-        
+        subjects = cache.get('all_subjects')
+        if not subjects:
+            subjects = Subject.objects.annotate(total_courses=Count('courses')) #we get all the subjects and the number of courses for each subject
+            cache.set('all_subjects', subjects)
+        all_courses = Course.objects.annotate(total_modules=Count('modules'))        
         if subject:
             subject = get_object_or_404(Subject, slug=subject)
-            courses = courses.filter(subject=subject)
+            all_courses = all_courses.filter(subject=subject)
         return self.render_to_response({
             'subjects': subjects,
             'subject': subject,
-            'courses': courses
+            'courses': all_courses
         })
 
 class CourseDetailView(DetailView):
